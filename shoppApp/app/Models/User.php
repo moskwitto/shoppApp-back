@@ -15,6 +15,7 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
+     * @psalm-var array{cutomerID: string, firstName: string, lastName: string, password: string, role: string, email: string, registrationDate: string}
      */
     protected $fillable = [
         'cutomerID',
@@ -25,6 +26,8 @@ class User extends Authenticatable
         'email',
         'registrationDate',
     ];
+
+
 
     /**
      * The attributes that should be hidden for serialization.
