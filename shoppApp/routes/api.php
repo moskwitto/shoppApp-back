@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,14 @@ Route::get('getProductsByVendor/{vendorID}', [ProductController::class, 'getProd
 Route::post('newCategory', [CategoryController::class, 'newCategory']);
 Route::get('categories', [CategoryController::class, 'getAllCategories']);
 Route::post('updateCategory/{id}', [CategoryController::class, 'updateCategory']);
+
+// Product-detail routes
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+Route::get('product-detail/{id}', [ProductDetailController::class, 'getProductDetailByID']);
+Route::put('product-detail/{id}/edit', [ProductDetailController::class, 'update']);
+Route::delete('product-detail/{id}', [ProductDetailController::class, 'destroy']);
+Route::get('product-detail/{id}/edit', [ProductDetailController::class, 'edit']);
+Route::post('product-detail', [ProductDetailController::class, 'uploadProductDetail']);
+
