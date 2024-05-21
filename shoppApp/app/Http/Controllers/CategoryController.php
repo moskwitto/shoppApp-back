@@ -7,13 +7,14 @@ use App\Models\Categories;
 
 class CategoryController extends Controller
 {
-    
+    //Gets all categories
     public function getAllCategories()
     {
         $categories = Categories::all();
         return response()->json($categories, 200);
     }
 
+    //updates categories
     public function updateCategory(Request $request, $id)
     {
         $category = Categories::find($id);
@@ -26,6 +27,7 @@ class CategoryController extends Controller
         return response()->json($category, 200);
     }
 
+    //creates a new category
     public function newCategory(Request $request)
     {
         $category = new Categories();
@@ -35,6 +37,7 @@ class CategoryController extends Controller
         return response()->json($category, 201);
     }
 
+    //Deletes a category using ID
     public function deleteCategory($id)
     {
         $category = Categories::find($id);
