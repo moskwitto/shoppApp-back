@@ -11,6 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (!Schema::hasTable('user')) {
+            return;
+        }
+        else{
         Schema::create('user', function (Blueprint $table) {
             $table->id("userID");
             $table->string("firstName");
@@ -18,9 +22,9 @@ return new class extends Migration
             $table->string("password");
             $table->string("role");
             $table->string("email");
-            $table->timestamps("registrationDate");
+            $table->date("registrationDate");
 
-        });
+        });}
     }
 
     /**
