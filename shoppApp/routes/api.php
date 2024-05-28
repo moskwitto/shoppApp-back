@@ -22,11 +22,12 @@ use App\Http\Controllers\ProductDetailController;
     return $request->user();
 });*/
 
-// Route::get('login', [AuthController::class, 'login_get']);
-// Route::post('login', [AuthController::class, 'login_post']);
-// Route::get('logout', [AuthController::class, 'logout']);
-// Route::get('refresh', [AuthController::class, 'refresh']);
-// Route::post('register', [AuthController::class, 'register']);
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+
+Route::post('logout', [AuthController::class, 'logout']);
+Route::get('user', [AuthController::class, 'userProfile']);
+
 
 //Product routes
 Route::post('newProduct', [ProductController::class, 'newProduct']);
