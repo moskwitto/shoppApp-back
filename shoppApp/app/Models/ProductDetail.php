@@ -8,15 +8,13 @@ class ProductDetail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'homeImage',
-        'image1',
-        'image2',
-        'image3',
-        'image4',
+        'productID',
         'productName',
-        'productDescription',
+        'categoryID',
         'price',
-        'stockAmount'
+        'stockAmount',
+        'vendorID',
+        'productDescription',
     ];
     
 }

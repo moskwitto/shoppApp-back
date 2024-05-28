@@ -83,7 +83,8 @@ class ProductController extends Controller{
 
     //Updates product
     public function updateProduct(Request $request, $id)
-    {
+    {   
+        console.log($request);
         $product = Product::find($id);
         if($product == null){
             return response()->json(['message' => 'Product not found'], 404);
@@ -94,6 +95,7 @@ class ProductController extends Controller{
         $product->stockAmount = $request->stockAmount;
         $product->vendorID = $request->vendorID;
         $product->productDescription = $request->productDescription;
+        $product->productImage = $request->productImage;
         $product->save();
         return response()->json($product, 200);
     }

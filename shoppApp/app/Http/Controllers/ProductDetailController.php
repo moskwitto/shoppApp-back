@@ -14,10 +14,11 @@ class ProductDetailController extends Controller
         if($productDetail == null){
             return response()->json(['message' => 'ProductDetail not found'], 404);
         }
+        console.log($productDetail);
         return response()->json($productDetail, 200);
     }
     public function uploadProductDetail(storeProductDetail $request){
-        productdetail::create($request->validated()); 
+        productDetail::create($request->validated()); 
         return response()->json(['ProductDetail created']);
     }
 }
