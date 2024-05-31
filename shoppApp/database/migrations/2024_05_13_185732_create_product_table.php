@@ -11,6 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (Schema::hasTable('products')) {
+            return;
+        }
+        else{
         Schema::create('products', function (Blueprint $table) {
             $table->id('productID');
             $table->string('productName');
@@ -21,9 +25,11 @@ return new class extends Migration
             $table->text('productDescription')->nullable();
             $table->timestamps();
 
-            $table->foreign('categoryID')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('vendorID')->references('id')->on('vendors')->onDelete('set null');
+            $table->foreign('categoryID')->references('categoryID')->on('categories')->onDelete('cascade');
+            $table->foreign('vendorID')->references('customerID')->on('vendors')->onDelete('set null');
+
         });
+    }
     }
 
     /**
