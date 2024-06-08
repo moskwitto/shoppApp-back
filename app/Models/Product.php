@@ -8,45 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
+
     protected $table = 'products';
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'productID',
-        'productName',
-        'categoryID',
-        'price',
-        'stockAmount',
-        'vendorID',
-        'productDescription',
-    ];
-
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
     protected $primaryKey = 'productID';
+    protected $fillable = ['productName', 'categoryID', 'price', 'stockAmount', 'vendorID', 'productDescription', 'imageUrl'];
 
+    // Relationships
     public function category()
     {
-        return $this->belongsTo('App\Models\Categories', 'categoryID');
+        return $this->belongsTo(Category::class, 'categoryBroader');
     }
 
+    public function vendor()
+    {
+        return $this->belongsTo(Customer::class, 'vendorID');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'productID');
+    }
 }

@@ -17,8 +17,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'categoryName' => $this->$faker->word,
-            'comissionPercentage' => $this->$faker->numberBetween(5, 20)
+            'categoryName' => fake()->word,
+            'comissionPercentage' => fake()->numberBetween(5, 20)
         ];
     }
 }

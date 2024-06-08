@@ -17,13 +17,13 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'productName' => $this->$faker->word,
+            'productName' => fake()->word,
             'categoryID' => \App\Models\Category::pluck('categoryID')->random(),
-            'price' => $this->$faker->numberBetween(100, 10000),
-            'stockAmount' => $this->$faker->numberBetween(0, 100),
+            'price' => fake()->numberBetween(100, 10000),
+            'stockAmount' => fake()->numberBetween(0, 100),
             'vendorID' => \App\Models\Customer::where('role', 'Vendor')->pluck('customerID')->random(),
-            'productDescription' => $this->$faker->sentence,
-            'imageUrl' => $this->$faker->imageUrl(640, 480, 'technics')
+            'productDescription' => fake()->sentence,
+            'imageUrl' => fake()->imageUrl(640, 480, 'technics')
         ];
     }
 }

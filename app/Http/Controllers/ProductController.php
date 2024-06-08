@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Categories;
+use App\Models\Category;
 
 class ProductController extends Controller{
 
@@ -83,7 +83,7 @@ class ProductController extends Controller{
 
     //Updates product
     public function updateProduct(Request $request, $id)
-    {   
+    {
         console.log($request);
         $product = Product::find($id);
         if($product == null){

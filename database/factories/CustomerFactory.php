@@ -17,12 +17,12 @@ class CustomerFactory extends Factory
     public function definition(): array
     {
         return [
-            'firstName' => $this->$faker->firstName,
-            'lastName' => $this->$faker->lastName,
+            'firstName' => fake()->firstName,
+            'lastName' => fake()->lastName,
             'password' => bcrypt('secret'),
-            'role' => $this->$faker->randomElement(['Customer', 'Admin', 'Vendor']),
-            'email' => $this->$faker->unique()->safeEmail,
-            'registrationDate' => $this->$faker->dateTimeThisYear()
+            'role' => fake()->randomElement(['Customer', 'Admin', 'Vendor']),
+            'email' => fake()->unique()->safeEmail,
+            'registrationDate' => fake()->dateTimeThisYear()
         ];
     }
 }

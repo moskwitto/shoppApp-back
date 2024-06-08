@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 class ProductDetail extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'productID',
         'productName',
@@ -16,5 +18,4 @@ class ProductDetail extends Model
         'vendorID',
         'productDescription',
     ];
-    
 }

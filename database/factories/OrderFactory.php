@@ -19,11 +19,11 @@ class OrderFactory extends Factory
         return [
             'productID' => \App\Models\Product::pluck('productID')->random(),
             'customerID' => \App\Models\Customer::pluck('customerID')->random(),
-            'destination' => $this->$faker->address,
-            'deliveryStatus' => $this->$faker->randomElement(['Pending', 'Delivered']),
-            'paymentStatus' => $this->$faker->randomElement(['Pending', 'Paid']),
-            'orderAmount' => $this->$faker->randomNumber(2),
-            'orderDate' => $this->$faker->dateTimeThisYear()
+            'destination' => fake()->address,
+            'deliveryStatus' => fake()->randomElement(['Pending', 'Delivered']),
+            'paymentStatus' => fake()->randomElement(['Pending', 'Paid']),
+            'orderAmount' => fake()->randomNumber(2),
+            'orderDate' => fake()->dateTimeThisYear()
         ];
     }
 }
