@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('firstName', 80)->nullable();
             $table->string('lastName', 80)->nullable();
             $table->string('password');
-            $table->enum('role', ['Customer', 'Admin', 'Vendor'])->default('Vendor');
+            $table->enum('role', ['Customer', 'Admin', 'Vendor'])->default('Customer');
             $table->string('email', 80)->unique();
             $table->timestamp('registrationDate')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();

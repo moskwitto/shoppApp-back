@@ -21,7 +21,7 @@ class ProductFactory extends Factory
             'categoryID' => \App\Models\Category::pluck('categoryID')->random(),
             'price' => fake()->numberBetween(100, 10000),
             'stockAmount' => fake()->numberBetween(0, 100),
-            'vendorID' => \App\Models\Customer::where('role', 'Vendor')->pluck('customerID')->random(),
+            'vendorID' => \App\Models\Customer::pluck('customerID')->random(),
             'productDescription' => fake()->sentence,
             'imageUrl' => fake()->imageUrl(640, 480, 'technics')
         ];
