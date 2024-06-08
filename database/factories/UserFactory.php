@@ -24,7 +24,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'customerID' => $this->faker->unique()->numberBetween(1, 1000),
+            // 'customerID' => $this->faker->unique()->numberBetween(1, 1000),
             'firstName' => $this->faker->firstName,
             'lastName' => $this->faker->lastName,
             'password' => Hash::make('password'), // password

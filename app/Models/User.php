@@ -18,7 +18,8 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'firstName',
+        'lastName',
         'email',
         'password',
     ];
@@ -47,7 +48,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * 
+     *
      *
      * @return mixed
      */
@@ -57,8 +58,6 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * 返回一个键值数组，包含要添加到 JWT 的任何自定义声明
-     *
      * @return array
      */
     public function getJWTCustomClaims()

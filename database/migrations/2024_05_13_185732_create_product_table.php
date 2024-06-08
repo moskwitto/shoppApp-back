@@ -23,11 +23,11 @@ return new class extends Migration
             $table->integer('stockAmount');
             $table->unsignedBigInteger('vendorID')->nullable();
             $table->text('productDescription')->nullable();
+            $table->text('productImage')->nullable();
             $table->timestamps();
 
             $table->foreign('categoryID')->references('categoryID')->on('categories')->onDelete('cascade');
             $table->foreign('vendorID')->references('customerID')->on('vendors')->onDelete('set null');
-
         });
     }
     }
