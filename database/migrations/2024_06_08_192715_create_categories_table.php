@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id('categoryID');
-            $table->string('categoryName');
-            $table->decimal('comissionPercentage', 8, 2);
+            $table->string('categoryName', 80)->nullable();
+            $table->integer('comissionPercentage')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
